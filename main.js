@@ -1,10 +1,10 @@
 let userInput = document.querySelector("#name");
 let rollDiceButton = document.querySelector(".roll");
-let totalSum = document.querySelector("#total");
+let totalSumDiv = document.querySelector("#total");
 let allRollsButton = document.querySelector(".allRolls");
 let listRolls = document.querySelector("#listAllRolls");
 let dieRolls = []
-let total = 0
+let totalSum = 0
 
 rollDiceButton.addEventListener("click", function () {
     console.log("+ button clicked");
@@ -15,18 +15,20 @@ rollDiceButton.addEventListener("click", function () {
         let singleRoll = Math.floor(Math.random() * 6) + 1;
         console.log(singleRoll)
         loopCounter += 1
-        total += singleRoll
-        total.innerHTML = "Sum total" +singleRoll+
+        totalSum += singleRoll
         dieRolls.push(singleRoll)
-}
-console.log(dieRolls)
+      
+        
+    }
+    totalSumDiv.innerHTML = "Sum Total " + totalSum 
+    console.log(dieRolls)
 })
 
 allRollsButton.addEventListener("click", function () {
     console.log("yes maam");
     let loopCounter = 0;
     while (loopCounter < dieRolls.length) {
-        listRolls.innerHTML += "<li>" +dieRolls[loopCounter]+ "</li>"
+        listRolls.innerHTML += "<li>" + dieRolls[loopCounter] + "</li>"
         loopCounter += 1
     }
 
